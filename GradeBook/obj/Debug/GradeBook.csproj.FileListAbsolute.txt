@@ -1,0 +1,14 @@
+C:\Users\zahng\Documents\TO DO\DEVELOPMENT\PluralSight\C Sharp NET - Beginner Course\gradebook\src\GradeBook\GradeBook\GradeBook\obj\Debug\GradeBook.csprojResolveAssemblyReference.cache
+C:\Users\zahng\Documents\TO DO\DEVELOPMENT\PluralSight\C Sharp NET - Beginner Course\gradebook\src\GradeBook\GradeBook\GradeBook\bin\Debug\GradeBook.exe.config
+C:\Users\zahng\Documents\TO DO\DEVELOPMENT\PluralSight\C Sharp NET - Beginner Course\gradebook\src\GradeBook\GradeBook\GradeBook\bin\Debug\GradeBook.exe
+C:\Users\zahng\Documents\TO DO\DEVELOPMENT\PluralSight\C Sharp NET - Beginner Course\gradebook\src\GradeBook\GradeBook\GradeBook\bin\Debug\GradeBook.pdb
+C:\Users\zahng\Documents\TO DO\DEVELOPMENT\PluralSight\C Sharp NET - Beginner Course\gradebook\src\GradeBook\GradeBook\GradeBook\bin\Debug\xunit.abstractions.dll
+C:\Users\zahng\Documents\TO DO\DEVELOPMENT\PluralSight\C Sharp NET - Beginner Course\gradebook\src\GradeBook\GradeBook\GradeBook\bin\Debug\xunit.assert.dll
+C:\Users\zahng\Documents\TO DO\DEVELOPMENT\PluralSight\C Sharp NET - Beginner Course\gradebook\src\GradeBook\GradeBook\GradeBook\bin\Debug\xunit.core.dll
+C:\Users\zahng\Documents\TO DO\DEVELOPMENT\PluralSight\C Sharp NET - Beginner Course\gradebook\src\GradeBook\GradeBook\GradeBook\bin\Debug\xunit.execution.desktop.dll
+C:\Users\zahng\Documents\TO DO\DEVELOPMENT\PluralSight\C Sharp NET - Beginner Course\gradebook\src\GradeBook\GradeBook\GradeBook\bin\Debug\xunit.abstractions.xml
+C:\Users\zahng\Documents\TO DO\DEVELOPMENT\PluralSight\C Sharp NET - Beginner Course\gradebook\src\GradeBook\GradeBook\GradeBook\bin\Debug\xunit.assert.xml
+C:\Users\zahng\Documents\TO DO\DEVELOPMENT\PluralSight\C Sharp NET - Beginner Course\gradebook\src\GradeBook\GradeBook\GradeBook\bin\Debug\xunit.core.xml
+C:\Users\zahng\Documents\TO DO\DEVELOPMENT\PluralSight\C Sharp NET - Beginner Course\gradebook\src\GradeBook\GradeBook\GradeBook\bin\Debug\xunit.execution.desktop.xml
+C:\Users\zahng\Documents\TO DO\DEVELOPMENT\PluralSight\C Sharp NET - Beginner Course\gradebook\src\GradeBook\GradeBook\GradeBook\obj\Debug\GradeBook.exe
+C:\Users\zahng\Documents\TO DO\DEVELOPMENT\PluralSight\C Sharp NET - Beginner Course\gradebook\src\GradeBook\GradeBook\GradeBook\obj\Debug\GradeBook.pdb
