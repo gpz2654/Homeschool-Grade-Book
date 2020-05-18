@@ -3,9 +3,25 @@ using System.Collections.Generic;
 
 namespace GradeBook
 {
-    public class Book
+    public delegate void GradeAddedDelegate(object sender, EventArgs args);
+
+    public class NamedObject
     {
-        public Book(string name) // This is an explicit Constructor is optional. Cannot have a return type
+       public NamedObject(string name)
+        {
+            Name = name;
+        }
+
+        public string Name
+        {
+            get;
+            set;
+        }
+    }
+
+    public class Book : NamedObject // Book IS-A named object
+    {
+        public Book(string name) : base(name) // This is an explicit Constructor is optional. Cannot have a return type
         {
             grades = new List<double>();
             Name = name; // this object (class). Used to identify the properties in this class/object
@@ -41,6 +57,10 @@ namespace GradeBook
             if(grade <= 100 && grade >= 0)
             {
                 grades.Add(grade);
+                if(GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs ());
+                }
             }
             else
             {
@@ -48,6 +68,9 @@ namespace GradeBook
             }
                        
         }
+
+        public event GradeAddedDelegate GradeAdded; // can use Book.GradeAdded
+
         public Statistics GetStatistics()   // return an object of type Statistics
         {
             var result = new Statistics();
@@ -145,11 +168,11 @@ namespace GradeBook
 
         private List<double> grades; // this is a field, cant use var      
 
-        public string Name
-        {
-            get;
-            set; // read only
-        } // same as below. In this case, user cannot change the name
+        //public string Name
+        //{
+        //    get;
+        //    set; // read only
+        //} // same as below. In this case, user cannot change the name
         //string category = "Science"; // readonly fields can only be assigned in constructors
 
 
