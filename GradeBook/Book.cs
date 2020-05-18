@@ -5,9 +5,9 @@ namespace GradeBook
 {
     public delegate void GradeAddedDelegate(object sender, EventArgs args);
 
-    public class NamedObject
+    public class NamedObject // Base class - DRY (Don't Repeat Yourself). Should go into new file
     {
-       public NamedObject(string name)
+       public NamedObject(string name) //  constructor
         {
             Name = name;
         }
@@ -19,9 +19,20 @@ namespace GradeBook
         }
     }
 
-    public class Book : NamedObject // Book IS-A named object
+    public abstract class Book : NamedObject // Book is-a NamedObject
     {
-        public Book(string name) : base(name) // This is an explicit Constructor is optional. Cannot have a return type
+        public Book(string name) : base(name)
+        {
+        }
+
+        public abstract void AddGrade(double grade); // abstract method
+
+    }
+
+    public class InMemoryBook : Book // InMemoryBook IS-A Book
+    {
+        public InMemoryBook(string name) : base(name) // This is an explicit Constructor is optional. Cannot have a return type
+            // Every class has a base class. The book class has a base class "NamedObject"
         {
             grades = new List<double>();
             Name = name; // this object (class). Used to identify the properties in this class/object
@@ -52,7 +63,8 @@ namespace GradeBook
                     break;
             }
         }
-        public void AddGrade(double grade)
+        public override void AddGrade(double grade) // this method overrides the method this class inherits from the base class
+            // Can only override Abstract and Virtual methods
         {
             if(grade <= 100 && grade >= 0)
             {
@@ -69,7 +81,7 @@ namespace GradeBook
                        
         }
 
-        public event GradeAddedDelegate GradeAdded; // can use Book.GradeAdded
+        public event GradeAddedDelegate GradeAdded; // can use InMemoryBook.GradeAdded
 
         public Statistics GetStatistics()   // return an object of type Statistics
         {

@@ -7,14 +7,14 @@ namespace GradeBook
     {
         static void Main(string[] args)
         {
-            var book = new Book("Gregory's Grade Book");
+            var book = new InMemoryBook("Anelisa's Grades InMemoryBook");
             book.GradeAdded += OnGradeAdded;
 
             EnterGrades(book);
-            //book.Name = "Greg";
-            var stats = book.GetStatistics(); // Ctrl  + . would autocreate the method in the Book class
+            
+            var stats = book.GetStatistics(); // Ctrl  + . would autocreate the method in the InMemoryBook class
 
-            Console.WriteLine(Book.CATEGORY); // Class name plus Const with CONSTANTS
+            Console.WriteLine(InMemoryBook.CATEGORY); // Class name plus Const with CONSTANTS
             Console.WriteLine($"For the book named {book.Name}");
             Console.WriteLine($"The lowest grade is {stats.Low}");
             Console.WriteLine($"The highest grade is: {stats.High}");
