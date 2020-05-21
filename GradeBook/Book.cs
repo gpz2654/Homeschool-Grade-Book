@@ -1,32 +1,59 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace GradeBook
 {
     public delegate void GradeAddedDelegate(object sender, EventArgs args);
 
-    public class NamedObject // Base class - DRY (Don't Repeat Yourself). Should go into new file
+    public interface IBook // defines capability of any book that I want to store grades and add statistics. 
     {
-       public NamedObject(string name) //  constructor
-        {
-            Name = name;
-        }
-
-        public string Name
-        {
-            get;
-            set;
-        }
+        void AddGrade(double grade);
+        Statistics GetStatistics();
+        string Name { get; }
+        event GradeAddedDelegate GradeAdded;
     }
 
-    public abstract class Book : NamedObject // Book is-a NamedObject
+    public abstract class Book : NamedObject, IBook // Book is-a NamedObject
     {
         public Book(string name) : base(name)
         {
         }
 
+        public abstract event GradeAddedDelegate GradeAdded;
+
         public abstract void AddGrade(double grade); // abstract method
 
+        public abstract Statistics GetStatistics();
+        
+    }
+
+    public class DiskBook : Book
+    {
+       
+        public DiskBook(string name) : base(name)
+        {
+
+        }
+
+        public override event GradeAddedDelegate GradeAdded;
+
+        public override void AddGrade(double grade)
+        {
+            using (var writer = File.AppendText($"{Name}.txt"))
+            {
+                writer.WriteLine(grade); // Writes and disposes
+                if(GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs());
+                }
+            }
+        }
+
+        public override Statistics GetStatistics()
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class InMemoryBook : Book // InMemoryBook IS-A Book
@@ -81,14 +108,12 @@ namespace GradeBook
                        
         }
 
-        public event GradeAddedDelegate GradeAdded; // can use InMemoryBook.GradeAdded
+        public override event GradeAddedDelegate GradeAdded; // can use InMemoryBook.GradeAdded
 
-        public Statistics GetStatistics()   // return an object of type Statistics
+        public override Statistics GetStatistics()   // return an object of type Statistics
         {
             var result = new Statistics();
-            result.Average = 0.0;
-            result.High = double.MinValue;
-            result.Low = double.MaxValue;
+            
 
             //foreach (var grade in grades) BEST to USE
             //{
@@ -188,7 +213,7 @@ namespace GradeBook
         //string category = "Science"; // readonly fields can only be assigned in constructors
 
 
-        public const string CATEGORY = "Science"; // readonly fields can only be assigned in constructors
+        public const string CATEGORY = "\nCourse name: Mathematics"; // readonly fields can only be assigned in constructors
 
         //public string Name // uppercase when properties are public
         //{
@@ -210,5 +235,6 @@ namespace GradeBook
         //    }
         //}
         //private string name;
+        
     }
 }
